@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diplomatura: La IA va a Clases</title>
+    <link rel="stylesheet" href="port.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+      /* Estilos para la splash screen y la transición de opacidad */
+      .splash-screen {
+        /* Asegúrate de que ocupa toda la pantalla */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white; /* O el color de fondo que desees */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1; /* Opacidad inicial */
+        transition: opacity 0.5s ease-out; /* Transición de opacidad */
+        z-index: 9999; /* Asegura que esté por encima de todo */
+      }
+
+      .splash-screen.hidden {
+        opacity: 0;
+        pointer-events: none; /* Permite clics a través una vez oculta */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="splash-screen" id="splashScreen">
+      <div class="content-wrapper">
+        <h1 class="diploma-title">DIPLOMATURA</h1>
+        <h2 class="course-name">La IA va a Clases</h2>
+        <p class="subtitle">
+          Estrategias para aplicar Inteligencia Artificial en el Aula
+        </p>
+      </div>
+    </div>
+
+    <script src="voy.js"></script>
+  </body>
+</html>
