@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula Virtual - Estrategias</title>
+    <link rel="stylesheet" href="style-estrategias.css" />
+  </head>
+ 
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1></h1>
+        <nav>
+          <ul>
+            <li><a href="#" class="nav-link">Novedades</a></li>
+
+            <li><a href="#" class="nav-link">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="container">
+        <section class="hero-section">
+          <h2>Bienvenido a tu Espacio de Aprendizaje</h2>
+          <p>
+            Descubre nuevas metodologías y lleva tus habilidades al siguiente
+            nivel.
+          </p>
+          <button class="cta-button" id="explore-courses" onclick="navigateToProgram()">
+  Explorar el Programa
+</button>
+
+<script>
+  function navigateToProgram() {
+    window.location.href = "programa.html";
+  }
+</script>
+        </section>
+<div class="course-grid">
+    <div class="course-card module-a"> <h4>Módulo A</h4>
+        <p>Inteligencia Artificial en el Aula</p>
+        <button class="course-button" id="open-modulo-a-btn" data-module="Modulo A">Ingresar</button>
+        <script>
+    // Obtén una referencia al botón usando su ID
+    const botonModuloA = document.getElementById('open-modulo-a-btn');
+
+    // Agrega un "escuchador de eventos" para el clic en el botón
+    botonModuloA.addEventListener('click', function() {
+        // Cuando se haga clic, redirige a 't.html'
+        window.location.href = 't.html';
+    });
+</script>
+    </div>
+
+    <div class="course-card module-b"> <h4>Módulo B</h4>
+        <p>Implicaciones Éticas y Sociales de la IA</p>
+        <button class="course-button" id="open-modulo-b-btn" data-module="Modulo B">Ingresar</button>
+    </div>
+
+    <div class="course-card module-c"> <h4>Módulo C</h4>
+        <p>Técnicas clave para aplicar la IA en el Aula</p>
+        <button class="course-button" id="open-modulo-c-btn" data-module="Modulo C">Ingresar</button>
+    </div>
+
+    <div class="course-card module-evaluacion"> <h4>Evaluación</h4>
+        <p>Metodologías de Evaluación Utilizando IA</p>
+        <button class="course-button" id="open-modulo-evaluacion-btn" data-module="Evaluacion">Ingresar</button>
+    </div>
+
+    <div class="course-card module-ciudadania-digital"> <h4>Ciudadanía Digital</h4>
+        <p>Ciudadanía Digital</p>
+        <button class="course-button" id="open-modulo-ciudadania-digital-btn" data-module="Ciudadania Digital">Ingresar</button>
+    </div>
+
+    <div class="course-card module-pedagogia-aumentada"> <h4>Hacia una Pedagogía Aumentada</h4>
+        <p>Hacia una Pedagogía Aumentada</p>
+        <button class="course-button" id="open-modulo-pedagogia-aumentada-btn" data-module="Pedagogia Aumentada">Ingresar</button>
+    </div>
+</div>
+        
+        </section>
+
+        <hr />
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; DWC 2025. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="script-estrategias.js"></script>
+  </body>
+</html>

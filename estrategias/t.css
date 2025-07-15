@@ -1,0 +1,208 @@
+/* Importar fuente similar a la imagen */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+:root {
+  --primary-blue: #0056b3; /* Un azul para títulos y elementos principales */
+  --light-blue: #add8e6; /* Azul claro para los números de semana */
+  --dark-grey: #333;
+  --medium-grey: #666;
+  --light-grey-bg: #f4f4f4;
+  --white: #ffffff;
+  --header-bg: linear-gradient(
+    to right,
+    #4a2c6d,
+    #6a329f
+  ); /* Gradiente del header */
+  --module-header-bg: #4a2c6d; /* Fondo para los títulos de módulo */
+  --hover-bg: #e6e6fa; /* Lavanda muy claro para el hover del li */
+  --border-color: #ddd;
+  --shadow-light: rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
+  --shadow-medium: rgba(0, 0, 0, 0.1); /* Sombra media para hover */
+  --accent-glow: rgba(0, 86, 179, 0.2); /* Sombra azul para resaltar */
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--light-grey-bg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  color: var(--dark-grey);
+}
+
+.container {
+  background-color: var(--white);
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px var(--shadow-medium);
+  width: 100%;
+  max-width: 750px;
+  box-sizing: border-box;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  text-align: center;
+  color: var(--module-header-bg);
+  margin-bottom: 40px;
+  font-size: 2.5em;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+#topicList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#topicList li {
+  background-color: var(--white);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 25px;
+  box-shadow: 0 4px 15px var(--shadow-light);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out,
+    background-color 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#topicList li:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px var(--shadow-medium), 0 0 0 4px var(--accent-glow);
+  background-color: var(--hover-bg);
+}
+
+#topicList li h3 {
+  color: var(--primary-blue);
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.6em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+#topicList li h3:hover {
+  color: #004499;
+  text-decoration: underline;
+}
+
+#topicList li p {
+  color: var(--medium-grey);
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* Estilos para el botón de regresar */
+.button-container {
+  text-align: center;
+  margin-top: 40px; /* Espacio superior para separar del último tema */
+  padding-top: 20px; /* Espacio interno superior */
+  border-top: 1px solid var(--border-color); /* Una línea sutil para separar */
+}
+
+.back-button {
+  display: inline-block;
+  padding: 12px 25px; /* Más padding para un botón más grande y cómodo */
+  background-color: var(--primary-blue); /* Color del botón */
+  color: var(--white);
+  font-size: 1.1em; /* Fuente un poco más grande */
+  font-weight: 600; /* Texto más negrito */
+  border: none;
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer;
+  text-decoration: none; /* Quitar subrayado del enlace */
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
+}
+
+.back-button:hover {
+  background-color: #004499; /* Azul más oscuro al pasar el mouse */
+  transform: translateY(-3px); /* Pequeña elevación */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al hacer hover */
+}
+
+/* Media Queries para Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px;
+    border-radius: 10px;
+    margin: 20px auto;
+  }
+  h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  #topicList li {
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+  #topicList li h3 {
+    font-size: 1.4em;
+  }
+  #topicList li p {
+    font-size: 0.95em;
+  }
+  .button-container {
+    margin-top: 30px;
+    padding-top: 15px;
+  }
+  .back-button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+    border-radius: 8px;
+  }
+  h1 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+  }
+  #topicList li {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  #topicList li h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  #topicList li p {
+    font-size: 0.9em;
+  }
+  .button-container {
+    margin-top: 25px;
+    padding-top: 10px;
+  }
+  .back-button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+}

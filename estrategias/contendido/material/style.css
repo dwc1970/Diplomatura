@@ -1,0 +1,215 @@
+/* Importar fuente similar a la imagen */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* Fondo principal con degradado de los colores proporcionados */
+  background: linear-gradient(135deg, #750f6f 0%, #411b3f 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #524051; /* Color de texto principal */
+  overflow-y: auto; /* Permite scroll si hay muchas preguntas */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.quiz-container {
+  background-color: #ffffff; /* Fondo blanco para el contenedor del quiz */
+  padding: 40px;
+  border-radius: 15px;
+  /* Sombra utilizando un color de la paleta con transparencia */
+  box-shadow: 0 10px 30px rgba(82, 64, 81, 0.2);
+  width: 95%;
+  max-width: 800px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  color: #750f6f; /* Azul vibrante reemplazado por un púrpura fuerte */
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 2.2em;
+  /* Sombra de texto con un color de la paleta con transparencia */
+  text-shadow: 1px 1px 2px rgba(65, 27, 63, 0.1);
+}
+
+.question-block {
+  background-color: #f2f0f2; /* Un gris muy claro derivado de la paleta */
+  border: 1px solid #524051; /* Borde con un gris oscuro */
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 25px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.question-block:hover {
+  transform: translateY(-5px);
+  /* Sombra de caja con un color de la paleta con transparencia */
+  box-shadow: 0 6px 15px rgba(65, 27, 63, 0.1);
+}
+
+.question-text {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #411b3f; /* Color de texto de pregunta más oscuro */
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.answer-options {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna por defecto */
+  gap: 12px;
+}
+
+@media (min-width: 600px) {
+  .answer-options {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Dos columnas en pantallas más grandes */
+  }
+}
+
+.answer-btn {
+  /* Fondo claro para los botones de respuesta */
+  background-color: rgba(139, 175, 54, 0.1);
+  border: 2px solid #8baf36; /* Borde con el verde */
+  color: #411b3f; /* Texto oscuro para los botones */
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  white-space: normal; /* Permite que el texto se ajuste */
+  word-wrap: break-word; /* Rompe palabras largas si es necesario */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.answer-btn:hover:not(.selected):not(.disabled) {
+  /* Fondo más oscuro para el hover */
+  background-color: rgba(139, 175, 54, 0.2);
+  transform: translateY(-2px);
+  /* Sombra con un color de la paleta con transparencia */
+  box-shadow: 0 4px 8px rgba(65, 27, 63, 0.1);
+}
+
+.answer-btn.selected {
+  background-color: #a20b99; /* Morado brillante al seleccionar */
+  border-color: #750f6f; /* Borde con un morado más oscuro */
+  color: white; /* Texto blanco para contraste */
+  font-weight: 600;
+}
+
+/* Estilos para deshabilitar opciones después de enviar */
+.answer-btn.disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Estilos para feedback de respuesta (después de mostrar resultados) */
+.answer-btn.correct {
+  background-color: #8baf36; /* Verde para respuesta correcta */
+  border-color: #7ba12f; /* Borde verde un poco más oscuro */
+  color: white; /* Texto blanco para contraste */
+  font-weight: 600;
+}
+
+.answer-btn.incorrect {
+  background-color: #750f6f; /* Morado oscuro para respuesta incorrecta */
+  border-color: #6a0c64; /* Borde morado un poco más oscuro */
+  color: white; /* Texto blanco para contraste */
+  font-weight: 600;
+}
+
+.main-button {
+  display: block;
+  width: 100%;
+  padding: 18px 25px;
+  margin-top: 35px;
+  background-color: #a20b99; /* Morado brillante para el botón principal */
+  color: white; /* Texto blanco para contraste */
+  border: none;
+  border-radius: 10px;
+  font-size: 1.3em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  /* Sombra de caja con un color de la paleta con transparencia */
+  box-shadow: 0 4px 10px rgba(65, 27, 63, 0.2);
+}
+
+.main-button:hover {
+  background-color: #750f6f; /* Morado oscuro al pasar el ratón */
+  transform: translateY(-2px);
+}
+
+.main-button:disabled {
+  background-color: #cccccc; /* Gris estándar para deshabilitado */
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.results-area {
+  margin-top: 40px;
+  padding: 30px;
+  /* Fondo claro para el área de resultados */
+  background-color: rgba(139, 175, 54, 0.15);
+  border: 2px solid #8baf36; /* Borde verde */
+  border-radius: 10px;
+  animation: slideInUp 0.7s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.results-area h2 {
+  color: #411b3f; /* Morado muy oscuro */
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.results-area p {
+  color: #8baf36; /* Verde para el texto de resultados */
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+#feedback-message {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #b6acb5; /* Morado brillante para el mensaje de feedback */
+  margin-top: 25px;
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none;
+}

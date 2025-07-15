@@ -1,0 +1,281 @@
+/* Importar fuente similar a la imagen */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #add8e6;
+  --dark-grey: #333;
+  --medium-grey: #666;
+  --light-grey: #f4f4f4;
+  --white: #ffffff;
+  --header-bg: linear-gradient(to right, #4a2c6d, #6a329f);
+  --module-header-bg: #4a2c6d;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
+  line-height: 1.6;
+  text-align: justify; /* JUSTIFICAR TODO EL TEXTO POR DEFECTO */
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  background-color: var(--white);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Header Section */
+.header {
+  background: var(--header-bg);
+  color: var(--white);
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center; /* CENTRAR TÍTULO PRINCIPAL */
+  width: 100%;
+}
+
+.header h1 span {
+  font-weight: 400;
+  font-size: 0.7em;
+  margin-left: 10px;
+  opacity: 0.8;
+}
+
+.header-logos {
+  display: flex;
+  align-items: center;
+}
+
+.header-logos .logo {
+  height: 40px;
+  margin-left: 20px;
+}
+
+/* Diplomatura Title Section */
+.diplomatura-title {
+  padding: 30px 40px;
+  text-align: center;
+  background-color: #e0e0f2;
+  border-bottom: 1px solid #ccc;
+}
+
+.diplomatura-title h2 {
+  font-size: 1.6em;
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+  text-align: center; /* CENTRAR SUBTÍTULO */
+}
+
+.diplomatura-title p {
+  font-size: 1em;
+  color: var(--medium-grey);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify; /* JUSTIFICAR TEXTO DE DESCRIPCIÓN */
+}
+
+/* Module Section */
+.module-section {
+  padding: 30px 40px;
+}
+
+.module-section .section-heading {
+  font-size: 1.4em;
+  color: var(--module-header-bg);
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--module-header-bg);
+  padding-bottom: 5px;
+  display: inline-block;
+  text-align: center; /* CENTRAR TÍTULO DE SECCIÓN */
+  width: 100%;
+}
+
+.module-section .section-description {
+  font-size: 0.9em;
+  color: var(--medium-grey);
+  margin-bottom: 30px;
+  text-align: justify; /* JUSTIFICAR DESCRIPCIÓN DE SECCIÓN */
+}
+
+.module-block {
+  margin-bottom: 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.module-block .module-header {
+  background-color: var(--module-header-bg);
+  color: var(--white);
+  padding: 12px 20px;
+  font-size: 1.1em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center; /* CENTRAR TÍTULO DE MÓDULO */
+}
+
+.module-block .module-header h4 {
+  margin: 0;
+  font-size: 1em;
+  text-align: center; /* CENTRAR SUBTÍTULO DE MÓDULO */
+}
+
+.module-block .week-row {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: var(--light-grey);
+  border-bottom: 1px solid #ddd;
+  flex-wrap: wrap;
+}
+
+.week-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.week-item .week-number {
+  background-color: var(--light-blue);
+  color: var(--dark-grey);
+  font-size: 1.6em;
+  font-weight: 700;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.week-item .week-date {
+  font-size: 0.85em;
+  color: var(--medium-grey);
+  text-align: center;
+}
+
+.module-description {
+  padding: 18px 20px;
+  font-size: 0.9em;
+  color: var(--dark-grey);
+  background-color: var(--white);
+  border-bottom: 1px solid #eee;
+  text-align: justify; /* JUSTIFICAR DESCRIPCIÓN DE MÓDULO */
+}
+
+.module-tutor {
+  padding: 12px 20px;
+  font-size: 0.85em;
+  color: var(--medium-grey);
+  background-color: var(--white);
+  font-weight: 600;
+  text-align: justify; /* JUSTIFICAR TUTOR */
+}
+
+/* Modificado: Se elimina la sobrescritura de color para que use el color general del módulo */
+.final-project-section .module-header {
+  background-color: var(--module-header-bg);
+}
+
+/* Modificado: Se elimina la sobrescritura de color para que use el color general de los números de semana */
+.final-project-section .week-item .week-number {
+  background-color: var(--light-blue);
+  color: var(--dark-grey);
+}
+
+/* Regresar Button */
+.button-container {
+  text-align: center;
+  padding: 30px 40px;
+  background-color: var(--light-grey);
+  border-top: 1px solid #ccc;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.back-button {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 10px 22px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  background-color: #004499;
+  transform: translateY(-2px);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .header h1 {
+    font-size: 1.6em;
+  }
+  .diplomatura-title,
+  .module-section,
+  .button-container {
+    padding: 20px;
+  }
+  .module-block .week-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .week-item {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.3em;
+  }
+  .diplomatura-title h2 {
+    font-size: 1.2em;
+  }
+  .module-block .module-header h4 {
+    font-size: 0.95em;
+  }
+  .week-item .week-number {
+    width: 38px;
+    height: 38px;
+    font-size: 1.4em;
+  }
+  .back-button {
+    padding: 8px 18px;
+    font-size: 0.9em;
+  }
+}

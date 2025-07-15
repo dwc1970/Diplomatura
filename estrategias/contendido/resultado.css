@@ -1,0 +1,26 @@
+/* Estilos para la página de resultados */
+.result-summary {
+  text-align: center;
+  padding: 30px;
+  background-color: var(--light-grey);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+}
+
+.score-display {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 15px;
+}
+
+.score-display span {
+  font-size: 1.2em; /* Para que el número del score sea más grande */
+}
+
+#feedbackMessage {
+  font-size: 1.2em;
+  color: var(--dark-grey);
+  line-height: 1.5;
+}

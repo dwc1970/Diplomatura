@@ -1,0 +1,241 @@
+/* style.css */
+
+/* Asegúrate de que el body y html tengan altura completa para que el fondo se expanda si es necesario */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif; /* Puedes ajustar la fuente */
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Estilos de la cabecera (header) */
+.header {
+  background-color: #2c3e50; /* Un color oscuro para la cabecera */
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header nav {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px; /* Espacio entre el título y la navegación */
+}
+
+.header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header nav ul li {
+  margin-left: 20px;
+}
+
+.header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.header nav ul li a:hover {
+  color: #007bff; /* Un color de resaltado al pasar el ratón */
+}
+
+/* Estilos de la sección principal */
+.main-content {
+  padding: 20px 0;
+}
+
+/* *** MODIFICACIONES PARA LA SECCIÓN HERO *** */
+.hero-section {
+  /* Ruta corregida para IA_5.jpg. Está en la misma carpeta que style.css. */
+  /* Aplicamos un gradiente semi-transparente sobre la imagen para la opacidad */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    /* Capa oscura con 50% de opacidad */ url("IA_5.jpg"); /* La imagen IA_5.jpg */
+  background-size: cover; /* La imagen cubrirá todo el espacio disponible */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  color: white; /* Color del texto para que contraste con la imagen oscura */
+  text-align: center;
+  padding: 80px 20px; /* Espacio alrededor del contenido del hero */
+  border-radius: 8px;
+  margin-bottom: 40px;
+  display: flex; /* Usamos flexbox para centrar el contenido */
+  flex-direction: column; /* Apila los elementos verticalmente */
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  min-height: 350px; /* Altura mínima para asegurar que la imagen se vea bien */
+  position: relative; /* Necesario para el pseudo-elemento overlay */
+  overflow: hidden; /* Asegura que no haya desbordamiento si la imagen es muy grande */
+}
+
+/* El overlay existente (hero-section::before) ahora es redundante si se usa el linear-gradient */
+/* Si deseas una doble capa de opacidad (imagen + gradiente + overlay), puedes dejarlo, */
+/* pero generalmente una de las dos opciones (gradiente o overlay) es suficiente para la opacidad. */
+/* Lo comentaré para evitar doble oscurecimiento, si la idea es solo 50% de opacidad total. */
+/* Si el 50% del gradiente no es suficiente, ajusta el valor rgba o descomenta este. */
+/* .hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+} */
+
+.hero-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+  z-index: 2; /* Asegura que el texto esté sobre el overlay/fondo */
+  position: relative;
+  /* Estilos para la caja del texto "Bienvenido a la Diplomatura..." */
+  /*background-color: #2c5f2d; /* Color verde oscuro de la imagen que pasaste */
+  padding: 20px 30px;
+  border-radius: 8px;
+  max-width: 800px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  line-height: 1.3;
+}
+
+.hero-section p {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.cta-button {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  z-index: 2;
+  position: relative;
+  margin-top: 30px;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos de la sección de cursos */
+.courses-overview {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.courses-overview h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.course-grid {
+  display: grid;
+  /* MODIFICACIÓN: Reducimos el tamaño mínimo de las columnas para hacer las tarjetas más pequeñas */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Reducido de 300px a 200px */
+  gap: 30px;
+}
+
+.course-card {
+  background-color: #f8fafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  /* MODIFICACIÓN: Reducimos el padding para hacer la tarjeta más compacta */
+  padding: 15px; /* Reducido de 25px a 15px */
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Nuevos estilos para las imágenes dentro de las tarjetas de curso */
+.course-card .course-image {
+  max-width: 70%; /* MODIFICACIÓN: Reducido para hacer la imagen más pequeña dentro de la tarjeta */
+  height: auto; /* Mantiene la proporción de la imagen */
+  border-radius: 8px; /* Para que coincida con el borde de la tarjeta */
+  margin-bottom: 15px; /* Espacio entre la imagen y el título del curso */
+  display: block; /* Para centrar la imagen */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.course-card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 8px; /* Ligeramente reducido de 10px */
+  color: #043a8b;
+}
+
+.course-card p {
+  color: #555;
+  margin-bottom: 15px; /* Ligeramente reducido de 20px */
+}
+
+/* --- ESTILO ORIGINAL DE .course-button (con ajustes de tamaño para la tarjeta más pequeña) --- */
+.course-button {
+  background-color: #2d2c79; /* Color de fondo del botón */
+  color: white;
+  /* MODIFICACIÓN: Ajustado padding y font-size para que el botón se vea bien en la tarjeta pequeña */
+  padding: 8px 15px; /* Reducido de 10px 20px */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem; /* Reducido de 1rem */
+  transition: background-color 0.3s ease;
+}
+
+.course-button:hover {
+  background-color: #218838; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilos del pie de página */
+.footer {
+  background-color: #103b66;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 40px;
+  box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Animaciones */
+.animate-scale-down {
+  transition: transform 0.2s ease-in-out;
+}
+
+.animate-scale-down:hover {
+  transform: scale(0.98);
+}

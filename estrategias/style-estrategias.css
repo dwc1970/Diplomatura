@@ -1,0 +1,431 @@
+/* style.css */
+
+/* Asegúrate de que el body y html tengan altura completa para que el fondo se expanda si es necesario */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif; /* Puedes ajustar la fuente */
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Estilos de la cabecera (header) */
+.header {
+  background-color: #2c3e50; /* Un color oscuro para la cabecera */
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header nav {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px; /* Espacio entre el título y la navegación */
+}
+
+.header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header nav ul li {
+  margin-left: 20px;
+}
+
+.header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.header nav ul li a:hover {
+  color: #007bff; /* Un color de resaltado al pasar el ratón */
+}
+
+/* Estilos de la sección principal */
+.main-content {
+  padding: 20px 0;
+}
+
+/* *** MODIFICACIONES PARA LA SECCIÓN HERO *** */
+.hero-section {
+  /* VERIFICACIÓN CRÍTICA DE LA RUTA DE LA IMAGEN */
+  /* Si tu style.css está en "MiAulaVirtual/" y tu imagen en "MiAulaVirtual/img/IA_8.jpeg" */
+  /* entonces la ruta '../img/IA_8.jpeg' es CORRECTA. */
+  /* Si la imagen no se ve, verifica lo siguiente: */
+  /* 1. ¿El nombre del archivo es EXACTO? (IA_8.jpeg, no ia_8.jpeg ni IA_8.JPG) */
+  /* 2. ¿Está el archivo IA_8.jpeg REALMENTE dentro de la carpeta 'img'? */
+  /* 3. Intenta una ruta absoluta temporalmente para descartar: */
+  /* background-image: url('file:///C:/Users/Usuario/Desktop/MiAulaVirtual/img/IA_8.jpeg'); */
+  /* Si con la absoluta funciona, es un problema de ruta relativa. */
+  background-image: url("IA_8.jpeg"); /* Mantengo la ruta que ya tienes */
+  background-size: cover; /* La imagen cubrirá todo el espacio disponible */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  color: white; /* Color del texto para que contraste con la imagen oscura */
+  text-align: center;
+  padding: 80px 20px; /* Espacio alrededor del contenido del hero */
+  border-radius: 8px;
+  margin-bottom: 40px;
+  display: flex; /* Usamos flexbox para centrar el contenido */
+  flex-direction: column; /* Apila los elementos verticalmente */
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  min-height: 350px; /* Altura mínima para asegurar que la imagen se vea bien */
+  position: relative; /* Necesario para el pseudo-elemento overlay */
+  overflow: hidden; /* Asegura que no haya desbordamiento si la imagen es muy grande */
+}
+
+/* Overlay para mejorar la legibilidad del texto sobre la imagen de fondo */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Ajusta la opacidad aquí si quieres que la imagen de fondo se vea más o menos */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Capa semi-transparente oscura (40% de opacidad) */
+  z-index: 1; /* Asegura que esté debajo del contenido del hero, pero sobre la imagen de fondo */
+}
+
+.hero-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0; /* No margin-bottom, ya que la p no tiene contenido */
+  z-index: 2; /* Asegura que el texto esté sobre el overlay */
+  position: relative; /* Asegura que el texto esté sobre el overlay */
+  /* Estilos para la caja del texto "Bienvenido a la Diplomatura..." */
+  background-color: #2c5f2d; /* Color verde oscuro de la imagen que pasaste */
+  padding: 20px 30px; /* Relleno dentro de la caja */
+  border-radius: 8px; /* Bordes ligeramente redondeados */
+  max-width: 800px; /* Ancho máximo para la caja del texto */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
+  line-height: 1.3; /* Ajuste para la altura de línea */
+  /* NOTA: El color de este h2 se mantiene con el color general del hero-section (white),
+           o puedes definirlo aquí si quieres un color específico solo para él */
+}
+
+.hero-section p {
+  /* Tu HTML tiene un <p> vacío aquí, puedes eliminarlo o añadir contenido si es necesario */
+  margin-top: 20px; /* Espacio si se añade contenido a la p */
+  font-size: 1.2rem;
+  z-index: 2; /* Asegura que el texto esté sobre el overlay */
+  position: relative; /* Asegura que el texto esté sobre el overlay */
+}
+
+/* Si tu hero-section tiene un botón "Explorar Cursos", también debería tener z-index: 2 */
+.cta-button {
+  background-color: #043a33; /* <-- MODIFICADO: Color de fondo del botón del hero */
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  z-index: 2; /* Asegura que el botón esté sobre el overlay */
+  position: relative; /* Asegura que el botón esté sobre el overlay */
+  margin-top: 30px; /* Espacio entre la caja de texto y el botón */
+}
+
+.cta-button:hover {
+  background-color: #218838;
+}
+
+/* Estilos de la sección de cursos */
+.courses-overview {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.courses-overview h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* <-- MODIFICADO para 3 columnas */
+  gap: 30px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.course-card {
+  /* background-color: #f8f9fa; /* <-- ¡¡¡CRÍTICO: ESTA LÍNEA DEBE SER ELIMINADA O COMENTADA!!! */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Asegura estas propiedades para que la imagen de fondo funcione */
+  position: relative;
+  overflow: hidden;
+  min-height: 250px;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.course-card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #ffffff; /* <-- CAMBIADO A BLANCO */
+  position: relative;
+  z-index: 2;
+}
+
+.course-card p {
+  color: #ffffff; /* <-- CAMBIADO A BLANCO (o #E0E0E0 para un gris muy claro) */
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.course-button {
+  background-color: #2d2c79; /* <-- MODIFICADO: Color de fondo de los botones de las tarjetas a azul oscuro */
+  color: white; /* <-- MODIFICADO: Color de las letras de los botones a blanco */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.course-button:hover {
+  background-color: #218838;
+}
+
+/* Estilos del pie de página */
+.footer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 40px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Animaciones */
+.animate-scale-down {
+  transition: transform 0.2s ease-in-out;
+}
+
+.animate-scale-down:hover {
+  transform: scale(0.98);
+}
+/* --- INICIO: ESTILOS AÑADIDOS PARA FONDOS DE TARJETAS DE CURSO (Mantener al final del archivo) --- */
+
+/* Ajustes menores si es necesario, pero diseñados para no chocar */
+.courses-overview {
+  /* Si ya tienes un padding en .courses-overview, puedes omitir o ajustar este */
+  padding: 20px;
+  text-align: center;
+}
+
+.course-grid {
+  display: grid;
+  /* CAMBIADO: Para forzar 3 columnas de igual ancho */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px; /* Puedes ajustar este valor si quieres más o menos espacio entre tarjetas */
+  justify-content: center;
+  max-width: 1200px; /* Asegura que la cuadrícula no exceda este ancho */
+  margin: 0 auto; /* Centra la cuadrícula en la página */
+}
+
+/* --- Estilos para la imagen de fondo de cada tarjeta --- */
+/* NOTA: La propiedad background-color del .course-card existente DEBE ser eliminada/comentada para ver la imagen */
+.course-card {
+  position: relative; /* Esencial para posicionar el pseudo-elemento ::before */
+  overflow: hidden; /* Oculta partes de la imagen si se desborda */
+  min-height: 250px; /* Asegura que la tarjeta tenga suficiente espacio para la imagen */
+  /* NO poner background-color aquí. Si ya existe en tu .course-card de arriba, quítalo. */
+}
+
+/* Pseudo-elemento para la imagen de fondo */
+.course-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  z-index: 1; /* Coloca la imagen debajo del contenido de la tarjeta */
+}
+
+/* Asegura que el contenido (h4, p, button) esté por encima de la imagen de fondo */
+.course-card h4,
+.course-card p,
+.course-card .course-button {
+  position: relative;
+  z-index: 2; /* Mayor z-index que la imagen de fondo */
+  /* Ya ajustado arriba, pero si tienes conflictos, podrías forzar el color aquí: */
+  /* color: white !important; */
+}
+
+/* --- Definición de imágenes específicas para cada módulo y sus efectos hover --- */
+/* Asegúrate de que tus imágenes estén en la carpeta 'Es_Img' y el nombre sea EXACTO (incluyendo extensión y mayúsculas/minúsculas). */
+
+/* Módulo A */
+.module-a::before {
+  background-image: url("Es_Img/tobi1.jpg"); /* Reemplaza "tobi1.jpg" con el nombre real de tu imagen para el Módulo A */
+  opacity: 0.7; /* Opacidad inicial de la imagen */
+  filter: brightness(100%); /* Brillo inicial */
+}
+
+.module-a:hover::before {
+  opacity: 1; /* Más opaco (más visible) al pasar el mouse */
+  filter: brightness(120%); /* Ligeramente más brillante */
+}
+
+/* Módulo B */
+.module-b::before {
+  background-image: url("Es_Img/tobi1.jpg"); /* Reemplaza "tobi2.jpg" con el nombre real de tu imagen para el Módulo B */
+  opacity: 0.7;
+  filter: brightness(100%);
+}
+
+.module-b:hover::before {
+  opacity: 1;
+  filter: brightness(120%);
+}
+
+/* Módulo C */
+.module-c::before {
+  background-image: url("Es_Img/tobi1.jpg"); /* Reemplaza "tobi3.jpg" */
+  opacity: 0.7;
+  filter: brightness(100%);
+}
+
+.module-c:hover::before {
+  opacity: 1;
+  filter: brightness(120%);
+}
+
+/* Evaluación */
+.module-evaluacion::before {
+  background-image: url("Es_Img/tobi1.jpg"); /* Reemplaza "tobi4.jpg" */
+  opacity: 0.7;
+  filter: brightness(100%);
+}
+
+.module-evaluacion:hover::before {
+  opacity: 1;
+  filter: brightness(120%);
+}
+
+/* Ciudadanía Digital */
+.module-ciudadania-digital::before {
+  background-image: url("Es_Img/tobi1.jpg"); /* Reemplaza "tobi5.jpg" */
+  opacity: 0.7;
+  filter: brightness(100%);
+}
+
+.module-ciudadania-digital:hover::before {
+  opacity: 1;
+  filter: brightness(120%);
+}
+
+/* Hacia una Pedagogía Aumentada */
+.module-pedagogia-aumentada::before {
+  background-image: url("Es_Img/tobi1.jpg"); /* Reemplaza "tobi6.jpg" */
+  opacity: 0.7;
+  filter: brightness(100%);
+}
+
+.module-pedagogia-aumentada:hover::before {
+  opacity: 1;
+  filter: brightness(120%);
+}
+
+/* Ajustes para pantallas más pequeñas (si no los tenías ya definidos) */
+@media (max-width: 768px) {
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const topicTitles = document.querySelectorAll('#topicList li h3');
+
+    topicTitles.forEach(h3 => {
+        h3.addEventListener('click', (event) => {
+            event.stopPropagation();
+
+            const listItem = h3.closest('li');
+            const topicSlug = listItem.getAttribute('data-topic');
+
+            let targetPage = '';
+
+            switch (topicSlug) {
+                case 'dilemas-ia':
+                    targetPage = 'contenido/dilemas.html';
+                    break;
+                case 'fundamentos-ia':
+                    targetPage = 'contenido/fundamentos.html';
+                    break;
+                case 'diseno-arquitectura':
+                    targetPage = 'contenido/diseno_arquitectura.html';
+                    break;
+                case 'desarrollo-implementacion':
+                    targetPage = 'contenido/desarrollo.html';
+                    break;
+                case 'pruebas-calidad':
+                    targetPage = 'contenido/pruebas.html';
+                    break;
+                case 'lanzamiento-post':
+                    targetPage = 'contenido/lanzamiento.html';
+                    break;
+                // --- NUEVA ENTRADA PARA TEMARIO ---
+                case 'temario-general':
+                    targetPage = 't.html'; // La ruta directa al archivo t.html en la misma carpeta
+                    break;
+                // --- FIN NUEVA ENTRADA ---
+                default:
+                    console.warn(`No se encontró una página para el tema: "${topicSlug}"`);
+                    alert(`No hay una página definida para este tema.`);
+                    return;
+            }
+
+            if (targetPage) {
+                window.location.href = targetPage;
+            }
+        });
+    });
+});
+/* --- FIN: ESTILOS AÑADIDOS PARA FONDOS DE TARJETAS DE CURSO --- */

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dilemas y Malentendidos en torno a la IA</title>
+    <style>
+      /* Importar fuente similar a la imagen */
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+      :root {
+        --primary-blue: #0056b3; /* Un azul para títulos y elementos principales */
+        --light-blue: #add8e6; /* Azul claro para los números de semana */
+        --dark-grey: #333;
+        --medium-grey: #666;
+        --light-grey: #f4f4f4;
+        --white: #ffffff;
+        --header-bg: linear-gradient(
+          to right,
+          #4a2c6d,
+          #6a329f
+        ); /* Gradiente similar al de la imagen */
+        --module-header-bg: #4a2c6d; /* Fondo para los títulos de módulo */
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--light-grey);
+        color: var(--dark-grey);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 30px auto;
+        background-color: var(--white);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .header {
+        background: var(--header-bg);
+        color: var(--white);
+        padding: 30px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: 2.2em;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      .diplomatura-title {
+        padding: 40px;
+        background-color: #e0e0e0;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .diplomatura-title h2 {
+        font-size: 2em;
+        color: var(--primary-blue);
+        margin-bottom: 15px;
+      }
+
+      .diplomatura-title p {
+        font-size: 1.1em;
+        color: var(--medium-grey);
+      }
+
+      .module-section {
+        padding: 30px 40px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .module-section:last-of-type {
+        border-bottom: none;
+      }
+
+      .module-header {
+        background-color: var(--module-header-bg);
+        color: var(--white);
+        padding: 15px 20px;
+        border-radius: 5px;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      }
+
+      .module-header h3 {
+        margin: 0;
+        font-size: 1.5em;
+        font-weight: 600;
+      }
+
+      .module-header .module-number {
+        background-color: var(--light-blue);
+        color: var(--dark-grey);
+        padding: 5px 12px;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 1.1em;
+      }
+
+      .module-block .week-row {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px; /* Espacio entre los elementos de la semana */
+      }
+
+      .week-item {
+        background-color: var(--light-grey);
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        flex: 1; /* Permite que los elementos se expandan */
+        min-width: 280px; /* Ancho mínimo para evitar que se aplasten demasiado */
+        max-width: calc(
+          33% - 20px
+        ); /* Aproximadamente 3 por fila con espaciado */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .week-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .week-item h4 {
+        color: var(--primary-blue);
+        font-size: 1.3em;
+        margin-bottom: 10px;
+        border-bottom: 2px solid var(--light-blue);
+        padding-bottom: 5px;
+      }
+
+      .week-item ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .week-item ul li {
+        margin-bottom: 8px;
+        font-size: 0.95em;
+        color: var(--medium-grey);
+      }
+
+      .week-item ul li::before {
+        content: "•";
+        color: var(--primary-blue);
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+
+      .button-container {
+        text-align: center;
+        padding: 30px 40px;
+      }
+
+      .back-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--primary-blue);
+        color: var(--white);
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        text-decoration: none;
+      }
+
+      .back-button:hover {
+        background-color: #004499;
+        transform: translateY(-2px);
+      }
+
+      /* Media Queries for Responsiveness */
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+          text-align: center;
+          padding: 20px;
+        }
+        .header h1 {
+          font-size: 1.6em; /* Ajuste para móviles */
+        }
+        .diplomatura-title,
+        .module-section,
+        .button-container {
+          padding: 20px;
+        }
+        .module-block .week-row {
+          flex-direction: column; /* Apilar semanas verticalmente en móviles */
+          align-items: center;
+        }
+        .week-item {
+          width: 100%;
+          margin-bottom: 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header h1 {
+          font-size: 1.4em;
+        }
+        .diplomatura-title h2 {
+          font-size: 1.6em;
+        }
+        .module-header h3 {
+          font-size: 1.2em;
+        }
+        .week-item {
+          padding: 15px;
+        }
+        .back-button {
+          padding: 8px 15px;
+          font-size: 0.9em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Dilemas y Malentendidos en torno a la IA</h1>
+      </header>
+
+      <section class="diplomatura-title">
+        <h2>Dilemas y malentendidos en torno a la IA</h2>
+
+        <p>
+          En este apartado, exploramos algunos de los dilemas éticos,
+          ambientales, laborales y pedagógicos asociados con la IA e IAG, así
+          como algunos malentendidos comunes en relación al uso y naturaleza de
+          estas tecnologías
+        </p>
+      </section>
+
+      <section class="module-section">
+        <div class="module-header">
+          <h3>Dilemas Éticos</h3>
+        </div>
+        <div class="module-block">
+          <div class="week-row">
+            <div class="week-item">
+              <h4>Sesgos y Discriminación</h4>
+              <ul>
+                <li>
+                  La IA y la IAG pueden perpetuar y amplificar los sesgos
+                  existentes en los datos utilizados para entrenar estos
+                  sistemas
+                </li>
+
+                <li>
+                  Los algoritmos de IA suelen reflejar la matriz cultural,
+                  lingüística, de género o edad, entre otras, de sus creadores o
+                  de los datos de entrenamiento
+                </li>
+
+                <li>
+                  Esto puede resultar en discriminación contra ciertos grupos
+                  demográficos minoritarios
+                </li>
+
+                <li>
+                  Este dilema es problemático en áreas como contratación
+                  laboral, justicia penal, ayuda social, y otorgamiento de
+                  préstamos bancarios o becas educativas
+                </li>
+
+                <li>
+                  Los sesgos pueden tener consecuencias graves y duraderas,
+                  afectando el derecho de las personas a la educación o a la
+                  salud
+                </li>
+              </ul>
+            </div>
+            <div class="week-item">
+              <h4>Falta de Transparencia y Responsabilidad</h4>
+              <ul>
+                <li>
+                  La falta de transparencia y responsabilidad en el diseño y uso
+                  de IA e IAG es otro dilema ético
+                </li>
+
+                <li>
+                  Los algoritmos son complejos y opacos, dificultando entender
+                  cómo construyen los criterios para tomar decisiones o generar
+                  contenido
+                </li>
+
+                <li>
+                  Esto puede impedir que las personas comprendan y cuestionen
+                  las decisiones automatizadas
+                </li>
+
+                <li>
+                  La cuestión de la responsabilidad se vuelve relevante cuando
+                  los errores en los sistemas de IA causan daños a personas y
+                  comunidades
+                </li>
+
+                <li>
+                  Determinar quién es responsable (desarrolladores, empresas,
+                  estados) es un desafío que implica consensos y gobernanza
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <div class="module-header">
+          <h3>Dilemas Ambientales</h3>
+        </div>
+        <div class="module-block">
+          <div class="week-row">
+            <div class="week-item">
+              <h4>Consumo Energético</h4>
+              <ul>
+                <li>
+                  El entrenamiento e implementación de sistemas de IA e IAG
+                  requieren una cantidad sustancial de energía
+                </li>
+
+                <li>
+                  Los centros de datos consumen grandes cantidades de
+                  electricidad, aumentando la huella de carbono global
+                </li>
+
+                <li>
+                  Este dilema es especialmente relevante en un contexto de
+                  cambio climático
+                </li>
+
+                <li>
+                  Google reconoció un aumento del 48% en sus emisiones de
+                  carbono en los últimos 5 años (El Comercio, 2024), desafío que
+                  enfrentan otras tecnológicas
+                </li>
+              </ul>
+            </div>
+            <div class="week-item">
+              <h4>Producción y Desecho de Hardware</h4>
+              <ul>
+                <li>
+                  Las preocupaciones por la producción y desecho del hardware
+                  necesario para soportar sistemas de IA e IAG también plantean
+                  dilemas ambientales
+                </li>
+
+                <li>
+                  Los componentes electrónicos tienen una vida útil limitada y
+                  son difíciles de reciclar, lo que deriva en la expansión de
+                  basurales tóxicos
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <div class="module-header">
+          <h3>Dilemas Laborales</h3>
+        </div>
+        <div class="module-block">
+          <div class="week-row">
+            <div class="week-item">
+              <h4>Transformación del Mercado Laboral</h4>
+              <ul>
+                <li>
+                  La automatización impulsada por la IA e IAG está transformando
+                  el mercado laboral, eliminando algunos trabajos tradicionales
+                  y creando nuevos
+                </li>
+                ]
+                <li>
+                  El ritmo de esta transformación es un problema, ya que muchos
+                  trabajadores no están preparados, lo que puede llevar al
+                  desempleo o precarización laboral
+                </li>
+
+                <li>
+                  Esto es preocupante en sectores con tareas rutinarias y
+                  repetitivas
+                </li>
+
+                <li>
+                  Las brechas digitales y de acceso a educación tecnológica de
+                  calidad pueden dejar a personas aún más rezagadas
+                </li>
+              </ul>
+            </div>
+            <div class="week-item">
+              <h4>Condiciones Laborales en el Sur Global</h4>
+              <ul>
+                <li>
+                  Se suma la preocupación por las condiciones laborales de
+                  quienes programan y moderan contenidos para herramientas de
+                  IAG
+                </li>
+
+                <li>
+                  Investigaciones (Williams, Miceli y Gebru, 2022) señalan la
+                  precarización laboral de programadores por paga mínima y
+                  afectaciones a su salud mental, especialmente en países del
+                  Sur Global (Haskins, 2024)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <div class="module-header">
+          <h3>Dilemas Pedagógicos</h3>
+        </div>
+        <div class="module-block">
+          <div class="week-row">
+            <div class="week-item">
+              <h4>Autenticidad de Evidencias de Aprendizaje</h4>
+              <ul>
+                <li>
+                  La IAG genera dilemas sobre la autenticidad de las evidencias
+                  de aprendizaje en evaluaciones
+                </li>
+
+                <li>
+                  Herramientas como ChatGPT, Gemini o Copilot facilitan el
+                  plagio y dificultan la evaluación del verdadero aprendizaje
+                </li>
+
+                <li>
+                  Esto plantea la pregunta sobre cómo garantizar que el trabajo
+                  de los estudiantes refleje su comprensión
+                </li>
+              </ul>
+            </div>
+            <div class="week-item">
+              <h4>"Personalización" Estandarizada</h4>
+              <ul>
+                <li>
+                  Se menciona el potencial de la IA e IAG para personalizar la
+                  educación, adaptando contenido y ritmo de aprendizaje
+                </li>
+
+                <li>
+                  Ejemplos incluyen tutores basados en IAG o sistemas que
+                  proponen trayectorias adaptadas
+                </li>
+
+                <li>
+                  Esta "personalización" presenta el problema de la
+                  estandarización de contenidos que diversifica para
+                  homogeneizar
+                </li>
+
+                <li>
+                  Hasta 2024, no hay casos concretos investigados de supuestos
+                  beneficios de la personalización automatizada
+                </li>
+
+                <li>
+                  Si la personalización se basa en opciones predefinidas por el
+                  sistema, se trata de un circuito prefijado que simula un
+                  tratamiento personalizado
+                </li>
+
+                <li>
+                  Hay dos concepciones opuestas de educación: diferenciar
+                  trayectorias para máximo potencial individual, o diseñar
+                  caminos alternativos para un logro estandarizado
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <div class="module-header">
+          <h3>Malentendidos Comunes sobre la IA</h3>
+        </div>
+        <div class="module-block">
+          <div class="week-row">
+            <div class="week-item">
+              <h4>"Es un buscador"</h4>
+              <ul>
+                <li>
+                  Es un malentendido común que la IAG funcione como buscadores
+                  tradicionales de internet
+                </li>
+
+                <li>
+                  Aunque generan respuestas, no buscan información en tiempo
+                  real ni siempre citan fuentes
+                </li>
+
+                <li>
+                  Pueden producir respuestas verosímiles pero no necesariamente
+                  veraces
+                </li>
+
+                <li>
+                  Es conveniente validar la información obtenida con una fuente
+                  confiable o conocimiento propio del tema
+                </li>
+              </ul>
+            </div>
+            <div class="week-item">
+              <h4>"Es neutral"</h4>
+              <ul>
+                <li>
+                  Existe una percepción errónea de que la IA es neutral y
+                  objetiva
+                </li>
+
+                <li>
+                  Los algoritmos pueden incorporar sesgos de los datos de
+                  entrenamiento y valores culturales de los programadores[cite:
+                  51].
+                </li>
+
+                <li>
+                  Estos sesgos pueden surgir de prejuicios raciales, diferencias
+                  culturales, variaciones lingüísticas y desigualdades sociales
+                </li>
+
+                <li>
+                  Los sistemas de IA pueden perpetuar y amplificar estos sesgos,
+                  produciendo resultados parciales e injustos
+                </li>
+
+                <li>
+                  Es esencial reconocer que no son inherentemente neutrales y
+                  deben ser monitoreados
+                </li>
+              </ul>
+            </div>
+            <div class="week-item">
+              <h4>"Es confiable"</h4>
+              <ul>
+                <li>
+                  Otro malentendido es que la IA siempre produce resultados
+                  confiables
+                </li>
+
+                <li>
+                  Pueden procesar datos rápidamente y generar textos coherentes,
+                  pero esto no garantiza precisión
+                </li>
+
+                <li>
+                  Los modelos generativos pueden producir información incorrecta
+                  o inventar datos, fenómeno conocido como “alucinación”
+                </li>
+
+                <li>
+                  Es esencial verificar la información y no confiar ciegamente
+                  en sus respuestas
+                </li>
+              </ul>
+            </div>
+            <div class="week-item">
+              <h4>"Es creativa"</h4>
+              <ul>
+                <li>
+                  Hay una creencia equivocada de que la IA es creativa como los
+                  humanos
+                </li>
+
+                <li>
+                  Los modelos de IAG recombinan y modifican patrones
+                  preexistentes de sus datos de entrenamiento
+                </li>
+
+                <li>
+                  La creatividad humana implica ideas originales y novedosas,
+                  algo que la IA solo simula
+                </li>
+
+                <li>
+                  Los sistemas de IA no tienen intención ni comprensión del
+                  contexto cultural o emocional, lo que limita su creatividad
+                  real.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="button-container">
+        <button class="back-button" onclick="goToEstrategias()">
+          Regresar
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function goToEstrategias() {
+        window.location.href = "fundamentos.html";
+      }
+    </script>
+  </body>
+</html>

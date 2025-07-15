@@ -1,0 +1,225 @@
+/* Importar fuente similar a la imagen */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+:root {
+  --primary-blue: #0056b3; /* Un azul para títulos y elementos principales */
+  --light-blue: #add8e6; /* Azul claro para los números de semana */
+  --dark-grey: #333;
+  --medium-grey: #666;
+  --light-grey: #f4f4f4;
+  --white: #ffffff;
+  --header-bg: linear-gradient(
+    to right,
+    #4a2c6d,
+    #6a329f
+  ); /* Gradiente similar al de la imagen */
+  --module-header-bg: #4a2c6d; /* Fondo para los títulos de módulo */
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  background-color: var(--white);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.header {
+  background: var(--header-bg);
+  color: var(--white);
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.diplomatura-title {
+  padding: 40px;
+  background-color: #e0e0e0;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.diplomatura-title h2 {
+  font-size: 2em;
+  color: var(--primary-blue);
+  margin-bottom: 15px;
+}
+
+.diplomatura-title p {
+  font-size: 1.1em;
+  color: var(--medium-grey);
+}
+
+.module-section {
+  padding: 30px 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.module-section:last-of-type {
+  border-bottom: none;
+}
+
+.module-header {
+  background-color: var(--module-header-bg);
+  color: var(--white);
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.module-header h3 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.module-header .module-number {
+  background-color: var(--light-blue);
+  color: var(--dark-grey);
+  padding: 5px 12px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.module-block .week-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacio entre los elementos de la semana */
+}
+
+.week-item {
+  background-color: var(--light-grey);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1; /* Permite que los elementos se expandan */
+  min-width: 280px; /* Ancho mínimo para evitar que se aplasten demasiado */
+  max-width: calc(33% - 20px); /* Aproximadamente 3 por fila con espaciado */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.week-item:hover {
+  transform: translateY(-5px);
+}
+
+.week-item h4 {
+  color: var(--primary-blue);
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--light-blue);
+  padding-bottom: 5px;
+}
+
+.week-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.week-item ul li {
+  margin-bottom: 8px;
+  font-size: 0.95em;
+  color: var(--medium-grey);
+}
+
+.week-item ul li::before {
+  content: "•";
+  color: var(--primary-blue);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.button-container {
+  text-align: center;
+  padding: 30px 40px;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--primary-blue);
+  color: var(--white);
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  background-color: #004499;
+  transform: translateY(-2px);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .header h1 {
+    font-size: 1.6em; /* Ajuste para móviles */
+  }
+  .diplomatura-title,
+  .module-section,
+  .button-container {
+    padding: 20px;
+  }
+  .module-block .week-row {
+    flex-direction: column; /* Apilar semanas verticalmente en móviles */
+    align-items: center;
+  }
+  .week-item {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.4em;
+  }
+  .diplomatura-title h2 {
+    font-size: 1.6em;
+  }
+  .module-header h3 {
+    font-size: 1.2em;
+  }
+  .week-item {
+    padding: 15px;
+  }
+  .back-button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+}
